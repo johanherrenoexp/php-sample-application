@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: hub.docker.com/r/johanherreno/php-twitter-app
+    image: johanherreno/php-twitter-app:latest
     ports:
       - "8080:80"
     environment:
