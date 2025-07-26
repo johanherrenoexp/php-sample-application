@@ -4,6 +4,9 @@
  * Returns the best negotiated format according to RFC 7231.
  */
 
-return (new \Negotiation\Negotiator())
-    ->getBest($_SERVER["HTTP_ACCEPT"], ['text/html', 'application/json'])
-    ->getValue();
+// Simple content negotiation fallback
+$accept = $_SERVER["HTTP_ACCEPT"] ?? 'text/html';
+if (strpos($accept, 'application/json') !== false) {
+    return 'application/json';
+}
+return 'text/html';
